@@ -47,7 +47,7 @@ export default function FeatureSection() {
                 className="absolute inset-0 bg-gradient-to-r from-[#4F9C8F]/20 to-[#D4A574]/20 rounded-full blur-3xl animate-float"
               />
               <img
-                src="/coffee/cup-centered.png"
+                src="/coffee/cup-centered.webp"
                 alt="Premium Coffee Cup"
                 className="relative z-10 w-80 h-80 object-contain drop-shadow-2xl hover:rotate-3 transition-transform duration-500"
                 loading="lazy"
