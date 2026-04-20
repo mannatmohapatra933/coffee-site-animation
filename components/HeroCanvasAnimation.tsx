@@ -41,7 +41,7 @@ export default function HeroCanvasAnimation() {
 
     for (let i = 1; i <= frameCount; i++) {
       const img = new Image();
-      img.src = `/frames/frame_${i.toString().padStart(3, '0')}.png`;
+      img.src = `/frames/frame_${i.toString().padStart(3, '0')}.webp`;
       img.onload = () => {
         loadedCount++;
         setLoadProgress(Math.round((loadedCount / frameCount) * 100));

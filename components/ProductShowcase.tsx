@@ -43,7 +43,7 @@ export default function ProductShowcase() {
               top: `${20 + (i * 7) % 40}%` // Deterministic position
             }}
           >
-            <img src="/coffee/bean.png" alt="Coffee Bean" className="w-full h-full object-contain animate-float" />
+            <img src="/coffee/bean.webp" alt="Coffee Bean" className="w-full h-full object-contain animate-float" />
           </motion.div>
         ))}
       </motion.div>
