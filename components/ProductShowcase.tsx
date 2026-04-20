@@ -21,7 +21,7 @@ export default function ProductShowcase() {
           className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60"
           loading="lazy"
         />
-        
+
         {/* Floating Coffee Beans */}
         {[...Array(8)].map((_, i) => (
           <motion.div
@@ -29,25 +29,25 @@ export default function ProductShowcase() {
             initial={{ y: 0 }}
             animate={{
               y: [0, -20, 0],
-              x: [0, Math.random() * 40 - 20, 0],
+              x: [0, (i % 3 - 1) * 20, 0], // Deterministic shift
               rotate: [0, 360]
             }}
             transition={{
               repeat: Infinity,
-              duration: 3 + Math.random() * 2,
+              duration: 3 + (i % 2), // Deterministic duration
               delay: i * 0.3
             }}
             className="absolute w-8 h-8 opacity-40"
             style={{
               left: `${10 + i * 12}%`,
-              top: `${20 + Math.random() * 40}%`
+              top: `${20 + (i * 7) % 40}%` // Deterministic position
             }}
           >
             <img src="/coffee/bean.png" alt="Coffee Bean" className="w-full h-full object-contain animate-float" />
           </motion.div>
         ))}
       </motion.div>
-      
+
       {/* Product Grid */}
       <div className="max-w-7xl mx-auto">
         <motion.h2
@@ -58,7 +58,7 @@ export default function ProductShowcase() {
         >
           Our Signature Blends
         </motion.h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {coffeeProducts.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />

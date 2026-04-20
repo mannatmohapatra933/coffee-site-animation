@@ -14,7 +14,8 @@ export default function HeroCanvasAnimation() {
   // Scroll progress tracking
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end start']
+    offset: ['start start', 'end start'],
+    layoutEffect: false
   });
 
   // ULTRA-SMOOTH spring physics for a premium feel
@@ -40,7 +41,7 @@ export default function HeroCanvasAnimation() {
 
     for (let i = 1; i <= frameCount; i++) {
       const img = new Image();
-      img.src = `/frames/frame-${i.toString().padStart(3, '0')}.png`;
+      img.src = `/frames/frame_${i.toString().padStart(3, '0')}.png`;
       img.onload = () => {
         loadedCount++;
         setLoadProgress(Math.round((loadedCount / frameCount) * 100));
@@ -65,19 +66,23 @@ export default function HeroCanvasAnimation() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const updateCanvasSize = () => {
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+    };
+
     const render = () => {
       const progress = smoothProgress.get();
-      // Calculate which frame to show (0 to 119)
+      // Animation completes at 40% scroll (progress * 2.5)
       const frameIndex = Math.min(
         frames.length - 1,
-        Math.floor(progress * frames.length)
+        Math.floor(progress * 2.5 * frames.length)
       );
 
       const img = frames[frameIndex];
-      if (!img) return;
-
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      if (!img || img.width === 0) return;
 
       const baseScale = Math.max(canvas.width / img.width, canvas.height / img.height);
       const w = img.width * baseScale;
@@ -89,10 +94,14 @@ export default function HeroCanvasAnimation() {
       ctx.drawImage(img, x, y, w, h);
     };
 
+    updateCanvasSize();
     const unsubscribe = smoothProgress.on('change', render);
     render();
 
-    const handleResize = () => render();
+    const handleResize = () => {
+      updateCanvasSize();
+      render();
+    };
     window.addEventListener('resize', handleResize);
 
     return () => {
