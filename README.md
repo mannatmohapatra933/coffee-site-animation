@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ☕ Aura Coffee - Cinematic Web Experience
 
-## Getting Started
+A high-fidelity, premium coffee brand website featuring smooth scroll-triggered cinematic animations and modern web aesthetics.
 
-First, run the development server:
+**🌐 Live Demo:** [https://coffee-site-animation.vercel.app/](https://coffee-site-animation.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Cinematic Hero Animation**: A 120-frame scroll-driven sequence of high-resolution coffee swirls.
+- **Performance Optimized**: 
+  - All animation frames converted to **WebP** for 80% faster loading times.
+  - Efficient canvas rendering loop to prevent layout shifts.
+- **Interactive UI**:
+  - Scroll-triggered text reveals and smooth spring-based physics using **Framer Motion**.
+  - Dynamic "Floating Bean" micro-animations.
+- **Modern Tech Stack**: Built with Next.js 14 (App Router), TailwindCSS, and TypeScript.
+- **Premium Design**: Dark mode aesthetic with glassmorphism, artisan typography (Playfair Display), and curated color palettes.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Tech Stack
 
-## Learn More
+- **Framework**: [Next.js 14](https://nextjs.org/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Styling**: [TailwindCSS](https://tailwindcss.com/)
+- **Image Processing**: [Sharp](https://sharp.pixelplumbing.com/)
+- **Rendering**: HTML5 Canvas
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Installation & Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/mannatmohapatra933/coffee-site-animation.git
+   cd coffee-site-animation
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📂 Project Structure
+
+- `/components`: Reusable UI components (Hero, Showcase, Features).
+- `/public/frames`: 120 optimized WebP frames for the hero animation.
+- `/data`: Product and feature configurations.
+- `/app`: Next.js App Router pages and layouts.
+
+---
+
+Made with ❤️ by [Mannat Mohapatra](https://github.com/mannatmohapatra933)
